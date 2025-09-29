@@ -1,0 +1,12 @@
+.git
+.gitigonre
+
+.docker
+
+app/__pyache__/
+app/*/__pyache__/
+app/*/*/__pyache__/
+app/*/*/*/__pyache__/
+.env/
+.venv/
+venv/

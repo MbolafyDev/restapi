@@ -1,0 +1,20 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        DEV: "true"  # passe l'arg au Dockerfile
+    working_dir: /app
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app
+    environment:
+      # ajuste si ton module settings porte un autre nom
+      DJANGO_SETTINGS_MODULE: app.settings
+      DEBUG: "1"
+      ALLOWED_HOSTS: "localhost,127.0.0.1,[::1]"
+    restart: unless-stopped
